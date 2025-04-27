@@ -25,9 +25,9 @@ jobs:
             --add-data "guilmon.png;." \
             --add-data "terriermon.png;." \
             --add-data "tukaimon.png;." \
-            --icon=app_icon.png \
+            --icon=digi_icon.ico \
             digimon_2e_latest_copy2.py
       - uses: actions/upload-artifact@v2
         with:
-          name: digimon-executable
+          name: digimon-2e
           path: ./dist/*.exe
