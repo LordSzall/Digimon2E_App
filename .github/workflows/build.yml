@@ -1,0 +1,33 @@
+name: Build Executable with auto-py-to-exe
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      - run: |
+          python -m pip install --upgrade pip
+          pip install pyinstaller auto-py-to-exe pillow
+      - run: |
+          auto-py-to-exe --onefile --noconsole \
+            --add-data "agumon.png;." \
+            --add-data "gabumon.png;." \
+            --add-data "guilmon.png;." \
+            --add-data "terriermon.png;." \
+            --add-data "tukaimon.png;." \
+            --icon=app_icon.png \
+            digimon_2e_latest_copy2.py
+      - uses: actions/upload-artifact@v2
+        with:
+          name: digimon-executable
+          path: ./dist/*.exe
