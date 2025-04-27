@@ -9,9 +9,9 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: '3.9'
       - name: Install dependencies
@@ -22,7 +22,7 @@ jobs:
         run: |
           pyinstaller --onefile --noconsole --icon=digi_icon.ico --add-data "agumon.png;." --add-data "gabumon.png;." --add-data "guilmon.png;." --add-data "terriermon.png;." --add-data "tsukaimon.png;." --add-data "sunarizamon.png;." digimon_2e_latest_version.py
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: digimon-executable
           path: ./dist/*.exe
