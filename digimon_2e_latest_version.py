@@ -767,9 +767,9 @@ class DigimonDNDApp:
         type_entry.insert(0, character_data.get("type", ""))
         
         # DP Allocation - Creating Variables before any Calculations
-        bonus_dp_var = tk.StringVar(value=str(character_data.get("bonus_dp_earned", 0)))
+        bonus_dp_var = tk.StringVar(value=str(character_data.get("bonus_dp_var", 0)))
         stat_spent_var = tk.StringVar(value="0")
-        quality_spent_var = tk.StringVar(value=str(character_data.get("quality_spent", 0)))
+        quality_spent_var = tk.StringVar(value=str(character_data.get("quality_spent_var", 0)))
         dp_spent_var = tk.StringVar(value="0")
         dp_allocated_var = tk.StringVar(value="0")
         
