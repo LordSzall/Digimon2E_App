@@ -579,7 +579,7 @@ class DigimonDNDApp:
         # Wound and Temp boxes
         updated_data["wound_boxes"] = int(form_refs["wound_var"].get()) if "wound_var" in form_refs else 0
         updated_data["temp_boxes"] = int(form_refs["temp_var"].get()) if "temp_var" in form_refs else 0
-        updated_data["battery"] = int(form_refs["batt_var"]) if "batt_var" in form_refs else 0
+        updated_data["battery"] = int(form_refs["batt_var"].get()) if "batt_var" in form_refs else 0
 
         # Base Stats
         updated_data["stats"] = {}
